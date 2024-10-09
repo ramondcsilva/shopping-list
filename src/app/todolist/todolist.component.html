@@ -1,0 +1,62 @@
+<div class="container">
+
+    <h1 class="shopping-list-title">
+        <i class="fas fa-shopping-cart"></i> Lista de Compras
+    </h1>
+
+    <hr>
+    <form id="submitForm" (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm" class="shopping-form">
+        <div class="form-group">
+            <label for="item" class="form-label">Adicionar item à lista:</label>
+            <input type="text" class="form-control" id="item" placeholder="Nome do produto" ngModel name="task" required>
+            <small *ngIf="taskForm.invalid && taskForm.dirty" id="errorMessage" class="form-text text-danger">Campo obrigatório</small>
+        </div>
+
+        <button [disabled]="taskForm.invalid" id="submitButton" type="submit" class="btn btn-success">
+            <i class="fas fa-plus"></i> Adicionar
+        </button>
+    </form>
+
+    <hr>
+
+    <table class="table table-striped shopping-list-table">
+        <thead>
+            <tr>
+                <th scope="col">Produto</th>
+                <th scope="col">Comprado</th>
+                <th scope="col">Remover</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Salvar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of taskArray; index as i">
+                <td>
+                    <input [ngClass]="{'edit': t.isEditable, 'not-edit': !t.isEditable, 'crossed': t.isCompleted}"
+                        #taskinput type="text" class="form-control" id="taskInTable" value="{{t.taskName}}"
+                        [readOnly]="!t.isEditable">
+                </td>
+                <td>
+                    <input (change)="onCheck(i)" id="myCheckbox" type="checkbox">
+                </td>
+                <td>
+                    <button id="delete" class="btn btn-danger btn-sm" (click)="onDelete(i)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+                <td>
+                    <button id="edit" class="btn btn-primary btn-sm" (click)="onEdit(i)" [disabled]="t.isEditable">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </td>
+                <td>
+                    <button id="save" class="btn btn-warning btn-sm" (click)="onSave(i, taskinput.value)"
+                        [disabled]="!t.isEditable">
+                        <i class="fas fa-save"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
