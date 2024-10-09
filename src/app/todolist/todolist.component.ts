@@ -31,6 +31,7 @@ export class TodolistComponent implements OnInit {
 
   onCheck(index: number) {
     this.taskArray[index].isCompleted = !this.taskArray[index].isCompleted;
+    this.taskArray.sort((a, b) => Number(b.isCompleted) - Number(a.isCompleted));
   }
 
   onEdit(index: number) {
