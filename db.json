@@ -2,7 +2,7 @@
   "shopping-list": [
     {
       "id": "2",
-      "taskName": "Revisar proposta de orçamento",
+      "taskName": "Revista",
       "isCompleted": false,
       "isEditable": false
     },
