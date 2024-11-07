@@ -3,7 +3,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { TodolistComponent } from './todolist/todolist.component';
+import { TodolistComponent } from './pages/todolist/todolist.component';
+import { ShoppingService } from './services/shopping.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,10 @@ import { TodolistComponent } from './todolist/todolist.component';
   ],
   imports: [
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    HttpClientModule 
   ],
-  providers: [],
+  providers: [ShoppingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

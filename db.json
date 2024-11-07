@@ -1,0 +1,22 @@
+{
+  "shopping-list": [
+    {
+      "id": "2",
+      "taskName": "Revisar proposta de orçamento",
+      "isCompleted": false,
+      "isEditable": false
+    },
+    {
+      "id": "5648",
+      "taskName": "Pei",
+      "isCompleted": true,
+      "isEditable": false
+    },
+    {
+      "id": "c142",
+      "taskName": "Para",
+      "isCompleted": true,
+      "isEditable": false
+    }
+  ]
+}
